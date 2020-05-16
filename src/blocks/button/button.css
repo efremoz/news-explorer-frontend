@@ -1,0 +1,7 @@
+@import url(./__text/button__text.css);
+@import url(./__icon/button__icon.css);
+.button {
+    padding: 15px;
+    margin: auto;
+    background-color: transparent;
+}

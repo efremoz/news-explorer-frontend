@@ -11,20 +11,12 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
     entry: { 
-      main: './src/js/index.js',
-      articles: './src/js/articles/index.js',
+      main: './src/index.js',
+      articles: './src/articles/index.js',
      },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name]/[name].[chunkhash].js',
-    },
-    resolve: {
-      alias: {
-        src: path.resolve(__dirname, 'src/'),
-        images: path.resolve(__dirname, 'src/images/'),
-        blocks: path.resolve(__dirname, 'src/blocks/'),
-        vendor: path.resolve(__dirname, 'src/vendor/'),
-      },
     },
     module: {
         rules: [
@@ -42,7 +34,7 @@ module.exports = {
                   ? { loader: 'style-loader' }
                   : {
                       loader: MiniCssExtractPlugin.loader,
-                      options: { publicPath: '../' },
+                      options: { publicPath: './' },
                     },
                 'css-loader',
                 'postcss-loader',
@@ -73,7 +65,7 @@ module.exports = {
                         enabled: false,
                       },
                       pngquant: {
-                        quality: [0.65, 0.9],
+                        quality: [0.85, 0.9],
                         speed: 4,
                       },
                       gifsicle: {
@@ -91,12 +83,12 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: false,
-            template: './src/pages/index.html',
+            template: './src/index.html',
             filename: 'index.html'
         }),
         new HtmlWebpackPlugin({
             inject: false,
-            template: './src/pages/articles/index.html',
+            template: './src/articles/index.html',
             filename: './articles/index.html'
         }),
         new CleanWebpackPlugin(),

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="NewsExplorer - поиск новостей в СМИ по ключевому слову">
+    <meta name="author" content="Денис Ефремов">
+    <title>NewsExplorer</title>
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>" />
+    <link rel="shortcut icon" href="<%=require('./images/favicon.png')%>" type="image/x-icon">
+</head>
+
+<body>
+    <div class="root">
+        <div class="bg-container">
+            <header class="header root__section">
+                <div class="header__item-container">
+                    <div class="header__logo">NewsExplorer</div>
+                </div>
+                <div class="header__item-container">
+                    <nav class="menu header__menu">
+                        <ul class="menu__items">
+                            <li class="menu__item">
+                                <a class="menu__link" href="/">Главная</a>
+                                <div class="menu__link-line menu__link-line_active"></div>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="/articles/">Сохраненные статьи</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button class="button header__button">
+                        <span class="button__text">Авторизоваться</span>
+                        <i class="button__icon"></i>
+                    </button>
+                </div>
+            </header>
+            <div class="line"></div>
+            <section class="lead">
+                <h1 class="lead__title">Что в мире творится ?</h1>
+                <p class="lead__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+                <div class="search">
+                    <input type="text" class="search__field" placeholder="Введите тему новости">
+                    <button class="search__button">Искать</button>
+                </div>
+            </section>
+        </div>
+        <main class="content root__section">
+            <section class="results">
+                <h2 class="title">Результаты поиска</h2>
+                <div class="results__list">
+                    <div class="card">
+                        <div class="card__image" style="background-image: url(<%=require('./images/cards/1.jpg')%>)">
+                            <button class="card__bookmark-icon"></button>
+                        </div>
+                        <div class="card__info">
+                            <p class="card__date">2 августа, 2020</p>
+                            <h3 class="card__title">Национальное достояние - парки</h3>
+                            <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                            <p class="card__source">ЛЕНТА.РУ</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__image" style="background-image: url(<%=require('./images/cards/2.jpg')%>)">
+                            <button class="card__bookmark-icon"></button>
+                        </div>
+                        <div class="card__info">
+                            <p class="card__date">2 августа, 2020</p>
+                            <h3 class="card__title">Национальное достояние - парки</h3>
+                            <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                            <p class="card__source">ЛЕНТА.РУ</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__image" style="background-image: url(<%=require('./images/cards/3.jpg')%>)">
+                            <button class="card__bookmark-icon"></button>
+                        </div>
+                        <div class="card__info">
+                            <p class="card__date">2 августа, 2020</p>
+                            <h3 class="card__title">Национальное достояние - парки</h3>
+                            <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                            <p class="card__source">ЛЕНТА.РУ</p>
+                        </div>
+                    </div>
+                    <div class="preloader">
+                        <i class="preloader__circle"></i>
+                        <p class="preloader__text">Идет поиск новостей...</p>
+                    </div>
+                    <div class="not-found">
+                        <img src="<%=require('./images/not-found.svg')%>" alt="Нет результатов" class="not-found__image" />
+                        <h3 class="not-found__title">Ничего не найдено</h3>
+                        <p class="not-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
+                    </div>
+                    <button class="results__button">Показать еще</button>
+                </div>
+            </section>
+            <section class="about root__section">
+                <picture>
+                    <source media="(max-width: 400px)" srcset="<%=require('./images/avatar/author-mobile.jpg')%>" />
+                    <source media="(max-width: 800px)" srcset="<%=require('./images/avatar/author-tablet.jpg')%>" />
+                    <img class="author__image" src="<%=require('./images/avatar/author.jpg')%>" alt="Аватар пользователя" />
+                </picture>
+                <p class="about__text">
+                    Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете. Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+                </p>
+            </section>
+        </main>
+        <footer class="footer root__section">
+            <div class="footer__copyright">&copy; 2020 Денис Ефремов, Powered by News API</div>
+
+            <nav class="footer__menu">
+                <ul class="footer__menu-items">
+                    <li class="footer__menu-item">
+                        <a href="./" class="footer__menu-link">Главная</a>
+                    </li>
+                    <li class="footer__menu-item">
+                        <a href="https://praktikum.yandex.ru/" class="footer__menu-link">Яндекс.Практикум</a>
+                    </li>
+                </ul>
+            </nav>
+            <ul class="footer__social-items">
+                <li class="footer__social-item">
+                    <a href="https://github.com/andrewLapshov/" class="footer__social-link">
+                    <img
+                      src="<%=require('./images/social/github.svg')%>"
+                      alt="github"
+                      class="footer__social-icon"
+                    />
+                  </a>
+                </li>
+                <li class="footer__social-item">
+                    <a href="https://www.facebook.com/andrew.lapshov" class="footer__social-link">
+                    <img
+                      src="<%= require('./images/social/facebook.svg') %>"
+                      alt="facebook"
+                      class="footer__social-icon"
+                    />
+                  </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+
+    <div class="popup__login">
+        <h3 class="popup__title">Вход</h3>
+        <form class="popup__form" name="popupForm">
+            <button class="button button_blue button_disabled popup__form-button" type="submit" disabled>Войти</button>
+        </form>
+    </div>
+
+    <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="NewsExplorer - поиск новостей в СМИ по ключевому слову">
+    <meta name="author" content="Денис Ефремов">
+    <title>NewsExplorer</title>
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>" />
+    <link rel="shortcut icon" href="<%=require('../images/favicon.png')%>" type="image/x-icon">
+</head>
+
+<body>
+    <div class="root">
+        <header class="header root__section">
+            <div class="header__item-container">
+                <div class="header__logo">NewsExplorer</div>
+            </div>
+            <div class="header__item-container">
+                <nav class="menu header__menu">
+                    <ul class="menu__items">
+                        <li class="menu__item">
+                            <a class="menu__link" href="/">Главная</a>
+                            <div class="menu__link-line menu__link-line_active"></div>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" href="/articles/">Сохраненные статьи</a>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="button header__button">
+                <span class="button__text">Авторизоваться</span>
+                <i class="button__icon"></i>
+            </button>
+            </div>
+        </header>
+    </div>
+    <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+</body>
+
+</html>
