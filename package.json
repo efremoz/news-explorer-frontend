@@ -1,6 +1,6 @@
 {
     "name": "news-explorer-frontend",
-    "version": "0.0.8",
+    "version": "1.0.0",
     "description": "frontend-for-diploma-project-praktikum.yandex",
     "main": "index.js",
     "scripts": {
