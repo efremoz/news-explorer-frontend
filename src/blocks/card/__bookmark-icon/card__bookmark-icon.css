@@ -1,0 +1,30 @@
+.card__bookmark-icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    height: 40px;
+    width: 40px;
+    background: #FFFFFF url('../../../images/bookmark/bookmark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+    .card__bookmark-icon {
+        top: 8px;
+        right: 8px;
+    }
+}
+
+.card__bookmark-icon:hover {
+    background: #FFFFFF url('../../../images/bookmark/bookmark-hover.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card__bookmark-icon:focus {
+    background: #FFFFFF url('../../../images/bookmark/bookmark-focus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}

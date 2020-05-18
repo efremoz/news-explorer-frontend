@@ -1,0 +1,7 @@
+.button__icon_logout {
+    width: 24px;
+    height: 24px;
+    background: url('../../../../images/icon/logout/logout-black.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
