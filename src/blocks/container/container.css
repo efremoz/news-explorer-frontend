@@ -1,5 +1,6 @@
 @import url(./_header/container_header.css);
 @import url(./_footer/container_footer.css);
+@import url(./_results/container_results.css);
 .container {
     display: flex;
     width: calc(100% - 208px);

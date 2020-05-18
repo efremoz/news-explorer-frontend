@@ -5,3 +5,7 @@
     margin: auto;
     background-color: transparent;
 }
+
+.button:hover {
+    cursor: pointer;
+}

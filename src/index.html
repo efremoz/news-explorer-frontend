@@ -28,7 +28,7 @@
                                     <div class="menu__link-line menu__link-line_active"></div>
                                 </li>
                                 <li class="menu__item">
-                                    <a class="menu__link" href="/articles/">Сохраненные статьи</a>
+                                    <a class="menu__link" href="articles/">Сохраненные статьи</a>
                                     <div class="menu__link-line"></div>
                                 </li>
                             </ul>
@@ -54,54 +54,57 @@
             </section>
         </div>
         <main class="content">
-            <!-- <section class="results">
-                <h2 class="title">Результаты поиска</h2>
-                <div class="results__list">
-                    <div class="card">
-                        <div class="card__image" style="background-image: url(<%=require('./images/cards/1.jpg')%>)">
-                            <button class="card__bookmark-icon"></button>
+            <section class="results">
+
+                <div class="container container_results">
+                    <h2 class="title title_results">Результаты поиска</h2>
+                    <div class="results__list">
+                        <div class="card">
+                            <div class="card__image" style="background-image: url(<%=require('./images/cards/1.jpg')%>)">
+                                <button class="card__bookmark-icon"></button>
+                            </div>
+                            <div class="card__info">
+                                <p class="card__date">2 августа, 2020</p>
+                                <h3 class="card__title">Национальное достояние - парки</h3>
+                                <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                                <p class="card__source">ЛЕНТА.РУ</p>
+                            </div>
                         </div>
-                        <div class="card__info">
-                            <p class="card__date">2 августа, 2020</p>
-                            <h3 class="card__title">Национальное достояние - парки</h3>
-                            <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                            <p class="card__source">ЛЕНТА.РУ</p>
+                        <div class="card">
+                            <div class="card__image" style="background-image: url(<%=require('./images/cards/2.jpg')%>)">
+                                <button class="card__bookmark-icon"></button>
+                            </div>
+                            <div class="card__info">
+                                <p class="card__date">2 августа, 2020</p>
+                                <h3 class="card__title">Национальное достояние - парки</h3>
+                                <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                                <p class="card__source">ЛЕНТА.РУ</p>
+                            </div>
                         </div>
+                        <div class="card">
+                            <div class="card__image" style="background-image: url(<%=require('./images/cards/3.jpg')%>)">
+                                <button class="card__bookmark-icon"></button>
+                            </div>
+                            <div class="card__info">
+                                <p class="card__date">2 августа, 2020</p>
+                                <h3 class="card__title">Национальное достояние - парки</h3>
+                                <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+                                <p class="card__source">ЛЕНТА.РУ</p>
+                            </div>
+                        </div>
+                        <div class="preloader">
+                            <i class="preloader__circle"></i>
+                            <p class="preloader__text">Идет поиск новостей...</p>
+                        </div>
+                        <div class="not-found">
+                            <img src="<%=require('./images/not-found.svg')%>" alt="Нет результатов" class="not-found__image" />
+                            <h3 class="not-found__title">Ничего не найдено</h3>
+                            <p class="not-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
+                        </div>
+                        <button class="results__button">Показать еще</button>
                     </div>
-                    <div class="card">
-                        <div class="card__image" style="background-image: url(<%=require('./images/cards/2.jpg')%>)">
-                            <button class="card__bookmark-icon"></button>
-                        </div>
-                        <div class="card__info">
-                            <p class="card__date">2 августа, 2020</p>
-                            <h3 class="card__title">Национальное достояние - парки</h3>
-                            <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                            <p class="card__source">ЛЕНТА.РУ</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card__image" style="background-image: url(<%=require('./images/cards/3.jpg')%>)">
-                            <button class="card__bookmark-icon"></button>
-                        </div>
-                        <div class="card__info">
-                            <p class="card__date">2 августа, 2020</p>
-                            <h3 class="card__title">Национальное достояние - парки</h3>
-                            <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                            <p class="card__source">ЛЕНТА.РУ</p>
-                        </div>
-                    </div>
-                    <div class="preloader">
-                        <i class="preloader__circle"></i>
-                        <p class="preloader__text">Идет поиск новостей...</p>
-                    </div>
-                    <div class="not-found">
-                        <img src="<%=require('./images/not-found.svg')%>" alt="Нет результатов" class="not-found__image" />
-                        <h3 class="not-found__title">Ничего не найдено</h3>
-                        <p class="not-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
-                    </div>
-                    <button class="results__button">Показать еще</button>
                 </div>
-            </section> -->
+            </section>
             <section class="author">
                 <div class="container">
                     <picture>
@@ -133,11 +136,11 @@
                     </nav>
                     <ul class="footer__social-items">
                         <li class="footer__social-item">
-                            <a href="https://github.com/andrewLapshov/" class="footer__social-link">
+                            <a href="https://github.com/efremoz/" class="footer__social-link">
                                 <img src="<%=require('./images/social/github.svg')%>" alt="github" class="footer__social-icon"/></a>
                         </li>
                         <li class="footer__social-item">
-                            <a href="https://www.facebook.com/andrew.lapshov" class="footer__social-link">
+                            <a href="https://www.facebook.com" class="footer__social-link">
                                 <img src="<%= require('./images/social/facebook.svg') %>" alt="facebook" class="footer__social-icon"/></a>
                         </li>
                     </ul>
