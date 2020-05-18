@@ -1,0 +1,7 @@
+.lead__title {
+    max-width: 545px;
+    margin: 0 0 32px;
+    font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    line-height: 1.07;
+}

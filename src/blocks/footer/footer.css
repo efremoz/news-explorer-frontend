@@ -1,0 +1,14 @@
+@import url(./__copyright/footer__copyright.css);
+@import url(./__container-link/footer__container-link.css);
+@import url(./__menu/footer__menu.css);
+@import url(./__menu-items/footer__menu-items.css);
+@import url(./__menu-item/footer__menu-item.css);
+@import url(./__menu-link/footer__menu-link.css);
+@import url(./__social-items/footer__social-items.css);
+@import url(./__social-item/footer__social-item.css);
+.footer {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    background-color: #fff;
+}

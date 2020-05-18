@@ -1,0 +1,10 @@
+@import url(./_header/container_header.css);
+@import url(./_footer/container_footer.css);
+.container {
+    display: flex;
+    width: calc(100% - 208px);
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}

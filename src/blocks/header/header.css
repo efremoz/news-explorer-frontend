@@ -2,14 +2,9 @@
 @import url(./__logo/header__logo.css);
 @import url(./__button/header__button.css);
 .header {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.line {
-    height: 2px;
-    background: rgba(196, 196, 196, 0.01);
-    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #fff;
+    border-bottom: 1px solid #d1d2d6;
 }

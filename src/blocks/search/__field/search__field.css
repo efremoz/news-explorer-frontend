@@ -1,0 +1,10 @@
+.search__field {
+    background: #FFFFFF;
+    border: none;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    border-radius: 100px;
+    padding: 21px 21px 21px 24px;
+    width: 400px;
+    color: #B6BCBF;
+}
