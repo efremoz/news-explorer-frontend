@@ -15,6 +15,14 @@
 }
 
 @font-face {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-style: normal;
+    font-display: fallback;
+    src: url('./fonts/inter-regular.woff') format('woff');
+}
+
+@font-face {
     font-family: 'Roboto Slab';
     font-weight: normal;
     font-style: normal;

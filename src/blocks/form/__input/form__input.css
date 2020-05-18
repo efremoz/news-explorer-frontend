@@ -1,0 +1,16 @@
+.form__input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    outline: none;
+    padding-bottom: 10px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    caret-color: #2f71e5;
+}
+
+.form__input,
+.form__error {
+    display: block;
+    font-size: 14px;
+    line-height: 17px;
+}

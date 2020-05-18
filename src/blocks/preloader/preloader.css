@@ -4,4 +4,5 @@
 .preloader {
     display: none;
     position: relative;
+    padding: 80px 0px;
 }

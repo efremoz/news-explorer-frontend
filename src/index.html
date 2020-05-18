@@ -96,19 +96,25 @@
                                 <p class="card__source">ЛЕНТА.РУ</p>
                             </div>
                         </div>
-                        <div class="preloader">
-                            <i class="preloader__circle"></i>
-                            <p class="preloader__text">Идет поиск новостей...</p>
-                        </div>
-                        <div class="not-found">
-                            <img src="<%=require('./images/not-found.svg')%>" alt="Нет результатов" class="not-found__image" />
-                            <h3 class="not-found__title">Ничего не найдено</h3>
-                            <p class="not-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
-                        </div>
 
                     </div>
+
                     <button class="button results__button">Показать еще</button>
+
+
+
+
                 </div>
+                <div class="preloader">
+                    <i class="preloader__circle"></i>
+                    <p class="preloader__text">Идет поиск новостей...</p>
+                </div>
+                <div class="not-found">
+                    <img src="<%=require('./images/not-found.svg')%>" alt="Нет результатов" class="not-found__image" />
+                    <h3 class="not-found__title">Ничего не найдено</h3>
+                    <p class="not-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
+                </div>
+
             </section>
             <section class="author">
                 <div class="container">
@@ -119,8 +125,9 @@
                     </picture>
                     <div class="author__text">
                         <h2 class="author__title">Об авторе</h2>
-                        <p class="author__text-paragraph">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
-                        <p class="author__text-paragraph">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+                        <p class="author__text-paragraph">Меня зовут Денис Ефремов. Это моя дипломная работа на курсе "Веб-разработчик" Яндекс.Практикума.
+                            <p class="author__text-paragraph">Это сервис для поиска новостей по Интернету. Здесь можно находить новости по ключевому слову и добавлять себе в закладки.</p>
+
                     </div>
                 </div>
             </section>
@@ -154,12 +161,45 @@
         </footer>
     </div>
 
+    <div class="popup">
+        <div class="popup__content">
+            <img src="<%=require('./images/icon/close.svg')%>" alt="закрыть" class="popup__close">
+            <form action="" class="form form_login">
+                <h2 class="form__title">Вход</h2>
 
-    <div class="popup__login">
-        <h3 class="popup__title">Вход</h3>
-        <form class="popup__form" name="popupForm">
-            <button class="button button_blue button_disabled popup__form-button" type="submit" disabled>Войти</button>
-        </form>
+                <label for="email" class="form__input-label">Email</label>
+                <input name="email" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
+                <span class="form__error"></span>
+                <label for="password" class="form__input-label">Пароль</label>
+                <input type="password" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
+                <span class="form__error"></span>
+
+                <span class="form__error form__error_submit"></span>
+                <button class="form__submit form__submit_active" name="submit">Войти</button>
+                <span class="form__switch">или <span class="form__switch-link form__switch-registration">Зарегистрироваться</span></span>
+            </form>
+
+            <form action="" class="form form_signup">
+                <h2 class="form__title">Регистрация</h2>
+
+                <label for="email" class="form__input-label">Email</label>
+                <input name="email" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
+                <span class="form__error"></span>
+                <label for="password" class="form__input-label">Пароль</label>
+                <input type="password" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
+                <span class="form__error"></span>
+                <label for="username" class="form__input-label">Имя</label>
+                <input type="text" name="name" class="form__input" placeholder="Введите своё имя" minlength="2" maxlength="30" required="">
+                <span class="form__error"></span>
+
+                <span class="form__error form__error_submit"></span>
+                <button class="form__submit form__submit_active" name="submit">
+                  Зарегистрироваться
+                </button>
+
+                <span class="form__switch">или <span class="form__switch-link form__switch-auth ">Войти</span></span>
+            </form>
+        </div>
     </div>
 
     <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
