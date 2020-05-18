@@ -1,8 +1,14 @@
 .results__list {
     margin-top: 64px;
     margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 16px;
     min-height: 282px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .results__list {
+        grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    }
 }

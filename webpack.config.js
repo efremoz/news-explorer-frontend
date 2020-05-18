@@ -11,8 +11,8 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
     entry: { 
-      main: './src/index.js',
-      articles: './src/articles/index.js',
+      main: './src/js/index.js',
+      articles: './src/js/articles/index.js',
      },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -34,7 +34,7 @@ module.exports = {
                   ? { loader: 'style-loader' }
                   : {
                       loader: MiniCssExtractPlugin.loader,
-                      options: { publicPath: './' },
+                      options: { publicPath: '../' },
                     },
                 'css-loader',
                 'postcss-loader',
@@ -83,12 +83,12 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: false,
-            template: './src/index.html',
+            template: './src/pages/index.html',
             filename: 'index.html'
         }),
         new HtmlWebpackPlugin({
             inject: false,
-            template: './src/articles/index.html',
+            template: './src/pages/articles/index.html',
             filename: './articles/index.html'
         }),
         new CleanWebpackPlugin(),

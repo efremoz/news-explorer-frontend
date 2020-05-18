@@ -1,4 +1,4 @@
-import './index.css';
+import '../pages/index.css';
 
 const formLogin = document.querySelector('.form_login');
 const formSignup = document.querySelector('.form_signup');

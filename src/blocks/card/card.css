@@ -6,18 +6,20 @@
 @import url('./__description/card__description.css');
 @import url('./__source/card__source.css');
 @import url('./__image/card__image.css');
+@import url('./__trash-icon/card__trash-icon.css');
+@import url('./__keywords-icon/card__keywords-icon.css');
 .card {
-    max-width: 400px;
+    /* max-width: 400px;
     margin-right: 16px;
     margin-bottom: 16px;
     border-radius: 10px;
     background-color: #FFFFFF;
     font-style: normal;
-    font-weight: 400;
-}
-
-@media (max-width: 768px) {
-    .card {
-        max-width: 224px;
-    }
+    font-weight: 400; */
+    border-radius: 10px;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    background-color: #fff;
+    color: #1a1b22;
 }

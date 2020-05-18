@@ -4,7 +4,7 @@
     right: 24px;
     height: 40px;
     width: 40px;
-    background: #FFFFFF url('../../../images/bookmark/bookmark.svg');
+    background: #FFFFFF url('../../../images/icon/bookmark/bookmark.svg');
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 8px;
@@ -18,13 +18,13 @@
 }
 
 .card__bookmark-icon:hover {
-    background: #FFFFFF url('../../../images/bookmark/bookmark-hover.svg');
+    background: #FFFFFF url('../../../images/icon/bookmark/bookmark-hover.svg');
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .card__bookmark-icon:focus {
-    background: #FFFFFF url('../../../images/bookmark/bookmark-focus.svg');
+    background: #FFFFFF url('../../../images/icon/bookmark/bookmark-focus.svg');
     background-repeat: no-repeat;
     background-position: center;
 }
