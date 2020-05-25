@@ -9,3 +9,9 @@
     opacity: 0;
     transition: opacity .2s ease;
 }
+
+@media (max-width: 968px) {
+    .menu__link-line {
+        top: 40px;
+    }
+}

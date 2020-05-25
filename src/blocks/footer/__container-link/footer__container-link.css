@@ -1,3 +1,11 @@
 .footer__container-link {
     display: flex;
 }
+
+@media (max-width: 540px) {
+    .footer__container-link {
+        order: 1;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

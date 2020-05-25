@@ -1,0 +1,8 @@
+@media (max-width: 650px) {
+    .header__menu {
+        width: 24px;
+        height: 24px;
+        margin: auto;
+        cursor: pointer;
+    }
+}

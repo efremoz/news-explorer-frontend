@@ -1,0 +1,12 @@
+.container_author {
+    justify-content: center;
+}
+
+@media (max-width: 540px) {
+    .container_author {
+        flex-direction: column;
+        padding-top: 32px;
+        padding-bottom: 80px;
+        align-items: center;
+    }
+}

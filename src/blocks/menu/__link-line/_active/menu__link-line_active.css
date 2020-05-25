@@ -2,3 +2,9 @@
     opacity: 1;
     display: block;
 }
+
+@media (max-width: 650px) {
+    .menu__link-line_active {
+        display: none;
+    }
+}

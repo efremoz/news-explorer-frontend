@@ -9,17 +9,24 @@
 @import url('./__trash-icon/card__trash-icon.css');
 @import url('./__keywords-icon/card__keywords-icon.css');
 .card {
-    /* max-width: 400px;
-    margin-right: 16px;
-    margin-bottom: 16px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    font-style: normal;
-    font-weight: 400; */
+    max-width: 400px;
+    margin: 0 auto;
     border-radius: 10px;
     font-family: Roboto, Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
     background-color: #fff;
     color: #1a1b22;
+}
+
+@media (min-width: 540px) and (max-width: 976px) {
+    .card {
+        max-width: 224px;
+    }
+}
+
+@media (max-width: 540px) {
+    .card {
+        max-width: 288px;
+    }
 }

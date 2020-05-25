@@ -1,0 +1,21 @@
+@import url('./_white/menu__button-open_white.css');
+@import url('./_black/menu__button-open_black.css');
+.menu__button-open {
+    display: none;
+}
+
+.menu__button-open:focus {
+    outline: none;
+}
+
+@media (max-width: 650px) {
+    .menu__button-open {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        margin: auto;
+        cursor: pointer;
+        display: inline-block;
+        border: none;
+    }
+}

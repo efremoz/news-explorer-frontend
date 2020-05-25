@@ -1,0 +1,5 @@
+@media (max-width: 650px) {
+    .header__menu_is-active_white {
+        background-image: url('../../../../../images/icon/close-dropdown/close-white.svg');
+    }
+}

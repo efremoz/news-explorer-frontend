@@ -2,3 +2,16 @@
     max-width: 600px;
     padding-top: 131px;
 }
+
+@media (max-width: 986px) {
+    .author__text {
+        padding-top: 60px;
+    }
+}
+
+@media (max-width: 540px) {
+    .author__text {
+        max-width: 100%;
+        padding-top: 32px;
+    }
+}

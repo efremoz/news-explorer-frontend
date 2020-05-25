@@ -2,6 +2,7 @@
 @import url('./__button/search__button.css');
 .search {
     position: relative;
+    width: 100%;
     font-family: Roboto, Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;

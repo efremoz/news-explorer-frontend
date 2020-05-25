@@ -1,0 +1,5 @@
+@media (max-width: 650px) {
+    .menu__button-close_white {
+        background: url('../../../../images/icon/close-dropdown/close-white.svg');
+    }
+}

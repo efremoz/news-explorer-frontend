@@ -4,8 +4,8 @@
     ;
 }
 
-@media (min-width: 768px) and (max-width: 1440px) {
-    .container.container_results {
-        width: calc(100% - 80px);
+@media (max-width: 968px) {
+    .container_results {
+        padding-bottom: 40px;
     }
 }

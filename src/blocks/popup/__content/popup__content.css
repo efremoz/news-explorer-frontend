@@ -9,3 +9,9 @@
     position: relative;
     z-index: 10;
 }
+
+@media (max-width: 650px) {
+    .popup__content {
+        top: 60px;
+    }
+}

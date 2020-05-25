@@ -12,9 +12,9 @@
     <link rel="shortcut icon" href="../<%=require('../../images/favicon.png')%>" type="image/x-icon">
 </head>
 
-<body>
-    <div class="root">
 
+<body class="body body_is-hidde">
+    <div class="root">
         <header class="header header_white">
             <div class="container container_header">
                 <div class="header__item-container">
@@ -22,24 +22,30 @@
                 </div>
                 <div class="header__item-container">
                     <nav class="menu header__menu">
-                        <ul class="menu__items">
-                            <li class="menu__item">
-                                <a class="menu__link menu__link_black" href="../">Главная</a>
+                        <button class="menu__button menu__button-open menu__button-open_black"></button>
 
-                            </li>
-                            <li class="menu__item">
-                                <a class="menu__link menu__link_black menu__link_active" href="./">Сохраненные статьи</a>
-                                <div class="menu__link-line menu__link-line_active menu__link-line_black "></div>
-                            </li>
-                        </ul>
+                        <div class="header__menu-overlay"></div>
+                        <div class='menu__items-container menu__items-container_mobile menu__items-container_white'>
+                            <ul class="menu__items">
+                                <li class="menu__item">
+                                    <a class="menu__link menu__link_black menu__link_active" href="../">Главная</a>
+
+                                </li>
+                                <li class="menu__item">
+                                    <a class="menu__link menu__link_black menu__link_active" href="./">Сохраненные статьи</a>
+                                    <div class="menu__link-line menu__link-line_active menu__link-line_black "></div>
+                                </li>
+                            </ul>
+                            <button class="button header__button header__buton_black">
+                                <span class="button__text">Денис</span>
+                                <img class="button__icon button__icon_logout" src="../<%=require('../../images/icon/logout/logout-black.svg')%>" alt="Выход" >
+                            </button>
+                        </div>
                     </nav>
-                    <button class="button header__button header__buton_black">
-                        <span class="button__text">Денис</span>
-                        <img class="button__icon button__icon_logout" src="../<%=require('../../images/icon/logout/logout-black.svg')%>" alt="Выход" >
-                    </button>
                 </div>
             </div>
         </header>
+
         <main class="content">
             <section class="article">
                 <div class="container container_article">
@@ -141,7 +147,7 @@
         </main>
         <footer class="footer ">
             <div class="container container_footer ">
-                <div class="footer__copyright ">&copy; 2020 Денис Ефремов, Powered by News API</div>
+                <div class="footer__copyright ">&copy; 2020 News API</div>
                 <div class="footer__container-link ">
                     <nav class="footer__menu ">
                         <ul class="footer__menu-items ">
@@ -155,7 +161,7 @@
                     </nav>
                     <ul class="footer__social-items ">
                         <li class="footer__social-item ">
-                            <a href="https://github.com/efremoz/ " class="footer__social-link " target="_blank ">
+                            <a href="https://github.com/efremoz/ " class="footer__social-link" target="_blank">
                                 <img src="../<%=require( '../../images/social/github.svg')%>" alt="github" class="footer__social-icon"/></a>
                         </li>
                         <li class="footer__social-item">

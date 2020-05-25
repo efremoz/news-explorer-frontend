@@ -18,3 +18,9 @@
     font-style: normal;
     font-weight: 400;
 }
+
+@media (max-width: 650px) {
+    .popup {
+        align-items: start;
+    }
+}

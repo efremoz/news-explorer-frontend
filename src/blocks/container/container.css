@@ -2,6 +2,7 @@
 @import url(./_footer/container_footer.css);
 @import url(./_results/container_results.css);
 @import url(./_article/container_article.css);
+@import url(./_author/container_author.css);
 .container {
     display: flex;
     width: calc(100% - 208px);
@@ -9,4 +10,16 @@
     margin: 0 auto;
     box-sizing: border-box;
     font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+@media (min-width: 540px) and (max-width: 976px) {
+    .container {
+        width: calc(100% - 80px);
+    }
+}
+
+@media (max-width: 540px) {
+    .container {
+        width: calc(100% - 32px);
+    }
 }

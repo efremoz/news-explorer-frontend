@@ -4,3 +4,11 @@
     top: -40px;
     right: -40px;
 }
+
+@media (max-width: 650px) {
+    .popup__close {
+        top: -42px;
+        right: 13px;
+        width: 30px;
+    }
+}

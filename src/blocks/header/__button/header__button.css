@@ -5,5 +5,13 @@
     box-sizing: border-box;
     border-radius: 100px;
     color: #fff;
-    height: 48px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@media (max-width: 650px) {
+    .header__button {
+        justify-content: center;
+        width: 100%;
+    }
 }

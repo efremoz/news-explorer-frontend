@@ -8,9 +8,24 @@
     caret-color: #2f71e5;
 }
 
-.form__input,
-.form__error {
+.form__input:focus {
+    border-bottom: 1px solid rgba(0, 0, 0, .8);
+}
+
+.form__input {
     display: block;
     font-size: 14px;
     line-height: 17px;
+}
+
+.form__input:valid:not(:placeholder-shown) {
+    border-color: #21d421;
+}
+
+.form__input:invalid:not(:placeholder-shown) {
+    border-color: red;
+}
+
+.form__input:invalid:not(:placeholder-shown)+.form__error {
+    visibility: visible;
 }

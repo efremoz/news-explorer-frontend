@@ -1,7 +1,16 @@
 .article__title {
-    width: 530px;
+    max-width: 530px;
     margin: 28px 0 0;
     font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
     font-size: 40px;
     line-height: 46px;
+}
+
+@media (max-width: 968px) {
+    .article__title {
+        max-width: 336px;
+        margin: 16px 0 0;
+        font-size: 30px;
+        line-height: 34px;
+    }
 }

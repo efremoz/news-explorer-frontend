@@ -1,6 +1,9 @@
+@import url(./__items-container/menu__items-container.css);
 @import url(./__items/menu__items.css);
 @import url(./__item/menu__item.css);
 @import url(./__link/menu__link.css);
+@import url(./__button-open/menu__button-open.css);
+@import url(./__button-close/menu__button-close.css);
 @import url(./__link/_active/menu__link_active.css);
 @import url(./__link-line/menu__link-line.css);
 @import url(./__link-line/_active/menu__link-line_active.css);
@@ -8,5 +11,13 @@
 @import url(./__link/_black/menu__link_black.css);
 .menu {
     font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
     font-size: 18px;
+}
+
+@media (max-width: 968px) {
+    .menu {
+        font-size: 16px;
+    }
 }

@@ -18,3 +18,10 @@
 .search__button:active {
     background-color: #2A65CC;
 }
+
+@media (max-width: 540px) {
+    .search__button {
+        margin-top: 82px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,5 @@
+@media (max-width: 650px) {
+    .menu__button-open_white {
+        background: url('../../../../images/icon/menu/menu-white.svg');
+    }
+}

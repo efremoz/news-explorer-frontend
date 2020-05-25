@@ -9,7 +9,7 @@
     background: #fff;
 }
 
-@media (min-width: 768px) and (max-width: 1440px) {
+@media (max-width: 976px) {
     .card__keywords-icon {
         top: 8px;
         left: 8px;

@@ -6,3 +6,9 @@
     background-size: cover;
     background-position: center;
 }
+
+@media (max-width: 540px) {
+    .search-bg {
+        min-height: 536px;
+    }
+}

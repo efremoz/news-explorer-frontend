@@ -1,0 +1,22 @@
+@media (max-width: 650px) {
+    .menu__items-container.menu__items-container_mobile {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 57px;
+        right: 0;
+        left: 0;
+        z-index: 5;
+        padding: 32px 40px 24px;
+        height: auto;
+        cursor: default;
+        background-color: #1a1b22;
+        border-top: 1px solid #d1d2d661;
+    }
+}
+
+@media (max-width: 540px) {
+    .menu__items-container.menu__items-container_mobile {
+        padding: 32px 16px 24px;
+    }
+}

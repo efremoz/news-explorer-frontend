@@ -1,0 +1,5 @@
+@media (max-width: 650px) {
+    .header__menu_black {
+        background-image: url('../../../../images/icon/menu/menu-black.svg');
+    }
+}
