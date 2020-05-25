@@ -8,11 +8,11 @@
     <meta name="description" content="NewsExplorer - поиск новостей в СМИ по ключевому слову">
     <meta name="author" content="Денис Ефремов">
     <title>NewsExplorer</title>
-    <link rel="stylesheet" href="main/main.58f30da58009983e2d42.css" />
+    <link rel="stylesheet" href="main/main.33338574fd5419bd52bf.css" />
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
 </head>
 
-<body>
+<body class="body">
     <div class="root">
         <div class="search-bg">
             <header class="header">
@@ -22,33 +22,33 @@
                     </div>
                     <div class="header__item-container">
                         <nav class="menu header__menu">
-                            <ul class="menu__items">
-                                <li class="menu__item">
-                                    <a class="menu__link menu__link_active" href="./">Главная</a>
-                                    <div class="menu__link-line menu__link-line_active"></div>
-                                </li>
-                                <li class="menu__item">
-                                    <a class="menu__link" href="articles/">Сохраненные статьи</a>
-                                    <div class="menu__link-line"></div>
-                                </li>
-                            </ul>
+                            <button class="menu__button menu__button-open menu__button-open_white"></button>
+                            <div class="header__menu-overlay"></div>
+                            <div class='menu__items-container menu__items-container_mobile'>
+                                <ul class="menu__items">
+                                    <li class="menu__item">
+                                        <a class="menu__link menu__link_active" href="./">Главная</a>
+                                        <div class="menu__link-line menu__link-line_active"></div>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a class="menu__link" href="articles/">Сохраненные статьи</a>
+                                        <div class="menu__link-line"></div>
+                                    </li>
+                                </ul>
+                                <button class="button header__button"><span class="button__text">Авторизоваться</span><i class="button__icon"></i></button>
+                            </div>
                         </nav>
-                        <button class="button header__button">
-                        <span class="button__text">Авторизоваться</span>
-                        <i class="button__icon"></i>
-                    </button>
                     </div>
                 </div>
             </header>
             <section class="lead">
-                <div class="container">
-                    <div class="lead__container">
-                        <h1 class="lead__title">Что в мире творится ?</h1>
-                        <p class="lead__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-                        <div class="search">
-                            <input type="text" class="search__field" placeholder="Введите тему новости">
-                            <button class="search__button">Искать</button>
-                        </div>
+                <div class="container lead__container">
+
+                    <h1 class="lead__title">Что в мире творится ?</h1>
+                    <p class="lead__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
+                    <div class="search">
+                        <input type="text" class="search__field" placeholder="Введите тему новости">
+                        <button class="search__button">Искать</button>
                     </div>
                 </div>
             </section>
@@ -102,22 +102,20 @@
                     <button class="button results__button">Показать еще</button>
 
 
-
-
                 </div>
                 <div class="preloader">
                     <i class="preloader__circle"></i>
                     <p class="preloader__text">Идет поиск новостей...</p>
                 </div>
                 <div class="not-found">
-                    <img src="./images/not-found.svg" alt="Нет результатов" class="not-found__image" alt="Ничего не найдено" />
+                    <img src="./images/not-found.svg" alt="Нет результатов" class="not-found__image" />
                     <h3 class="not-found__title">Ничего не найдено</h3>
                     <p class="not-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
                 </div>
 
             </section>
             <section class="author">
-                <div class="container">
+                <div class="container container_author">
                     <picture>
                         <source media="(max-width: 400px)" srcset="./images/author-mobile.jpg" />
                         <source media="(max-width: 800px)" srcset="./images/author-tablet.jpg" />
@@ -134,7 +132,7 @@
         </main>
         <footer class="footer">
             <div class="container container_footer">
-                <div class="footer__copyright">&copy; 2020 Денис Ефремов, Powered by News API</div>
+                <div class="footer__copyright">&copy; 2020 News API</div>
                 <div class="footer__container-link">
                     <nav class="footer__menu">
                         <ul class="footer__menu-items">
@@ -164,32 +162,32 @@
     <div class="popup">
         <div class="popup__content">
             <img src="./images/close.svg" alt="закрыть" class="popup__close">
-            <form action="" class="form form_login">
+            <form novalidate action="/" class="form form_login">
                 <h2 class="form__title">Вход</h2>
 
                 <label for="email" class="form__input-label">Email</label>
-                <input name="email" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
-                <span class="form__error"></span>
+                <input type="email" name="email" id="email" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
+                <span class="form__error">Адрес почты указан в неверном формате</span>
                 <label for="password" class="form__input-label">Пароль</label>
-                <input type="password" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
-                <span class="form__error"></span>
+                <input type="password" id="password" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
+                <span class="form__error">Пароль должен быть минимум 8 символов</span>
 
                 <span class="form__error form__error_submit"></span>
-                <button class="form__submit form__submit_active" name="submit">Войти</button>
+                <button class="form__submit" name="submit" disabled>Войти</button>
                 <span class="form__switch">или <span class="form__switch-link form__switch-registration">Зарегистрироваться</span></span>
             </form>
 
-            <form action="" class="form form_signup">
+            <form novalidate action="/" class="form form_signup">
                 <h2 class="form__title">Регистрация</h2>
 
-                <label for="email" class="form__input-label">Email</label>
-                <input name="email" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
-                <span class="form__error"></span>
-                <label for="password" class="form__input-label">Пароль</label>
-                <input type="password" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
-                <span class="form__error"></span>
-                <label for="username" class="form__input-label">Имя</label>
-                <input type="text" name="name" class="form__input" placeholder="Введите своё имя" minlength="2" maxlength="30" required="">
+                <label for="email-reg" class="form__input-label">Email</label>
+                <input type="email" name="email" id="email-reg" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
+                <span class="form__error">Адрес почты указан в неверном формате</span>
+                <label for="password-reg" class="form__input-label">Пароль</label>
+                <input type="password" id="password-reg" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
+                <span class="form__error">Пароль должен быть минимум 8 символов</span>
+                <label for="username-reg" class="form__input-label">Имя</label>
+                <input type="text" id="username-reg" name="name" class="form__input" placeholder="Введите своё имя" minlength="2" maxlength="30" required="">
                 <span class="form__error"></span>
 
                 <span class="form__error form__error_submit"></span>
@@ -202,7 +200,7 @@
         </div>
     </div>
 
-    <script type="module" src="main/main.5d10f95bbaca5ebc01f9.js"></script>
+    <script type="module" src="main/main.f0eef9707243c8a87d20.js"></script>
 </body>
 
 </html>
