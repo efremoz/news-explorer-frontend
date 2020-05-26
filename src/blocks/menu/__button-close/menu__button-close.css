@@ -1,0 +1,21 @@
+@import url('./_white/menu__button-close_white.css');
+@import url('./_black/menu__button-close_black.css');
+.menu__button-close {
+    display: none;
+}
+
+.menu__button-close:focus {
+    outline: none;
+}
+
+@media (max-width: 650px) {
+    .menu__button-close {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        margin: auto;
+        cursor: pointer;
+        display: inline-block;
+        border: none;
+    }
+}

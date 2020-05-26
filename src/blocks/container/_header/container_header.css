@@ -1,0 +1,11 @@
+.container_header {
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 968px) {
+    .container_header {
+        height: 66px;
+    }
+}

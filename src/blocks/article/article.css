@@ -1,0 +1,23 @@
+@import url('./__subtitle/article__subtitle.css');
+@import url('./__title/article__title.css');
+@import url('./__name/article__name.css');
+@import url('./__count/article__count.css');
+@import url('./__saved/article__saved.css');
+@import url('./__text/article__text.css');
+@import url('./__keywords/article__keywords.css');
+.article {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    background: #fff;
+    color: #1A1B22;
+    padding: 40px 0 56px 0;
+}
+
+@media (max-width: 968px) {
+    .article {
+        font-size: 14px;
+        padding: 24px 0 32px;
+    }
+}

@@ -1,0 +1,32 @@
+@import url('./__bookmark-icon/card__bookmark-icon.css');
+@import url('./__image-container/card__image-container.css');
+@import url('./__info/card__info.css');
+@import url('./__date/card__date.css');
+@import url('./__title/card__title.css');
+@import url('./__description/card__description.css');
+@import url('./__source/card__source.css');
+@import url('./__image/card__image.css');
+@import url('./__trash-icon/card__trash-icon.css');
+@import url('./__keywords-icon/card__keywords-icon.css');
+.card {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    background-color: #fff;
+    color: #1a1b22;
+}
+
+@media (min-width: 540px) and (max-width: 976px) {
+    .card {
+        max-width: 224px;
+    }
+}
+
+@media (max-width: 540px) {
+    .card {
+        max-width: 288px;
+    }
+}

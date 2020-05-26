@@ -1,0 +1,14 @@
+.menu__link {
+    text-decoration: none;
+    color: #B6BCBF;
+}
+
+.menu__link:hover {
+    color: #fff
+}
+
+@media (max-width: 650px) {
+    .menu__link {
+        color: #fff
+    }
+}

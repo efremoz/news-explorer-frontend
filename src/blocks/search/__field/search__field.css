@@ -1,0 +1,17 @@
+.search__field {
+    width: 80%;
+    padding: 21px 75px 21px 24px;
+    background: #FFFFFF;
+    color: #B6BCBF;
+    border: none;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+    border-radius: 100px;
+}
+
+@media (max-width: 540px) {
+    .search__field {
+        width: 100%;
+        padding: 21px;
+    }
+}

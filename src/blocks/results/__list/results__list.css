@@ -1,0 +1,24 @@
+.results__list {
+    width: 100%;
+    margin-top: 64px;
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 16px;
+    min-height: 282px;
+}
+
+@media screen and (max-width: 976px) {
+    .results__list {
+        grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+        grid-gap: 8px;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 540px) {
+    .results__list {
+        grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+    }
+}

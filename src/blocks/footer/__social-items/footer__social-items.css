@@ -1,0 +1,12 @@
+.footer__social-items {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 540px) {
+    .footer__social-items {
+        padding-top: 10px;
+    }
+}

@@ -1,0 +1,7 @@
+@import url('./_results/title_results.css');
+.title {
+    margin: 0px;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}

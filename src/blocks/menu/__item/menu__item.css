@@ -1,0 +1,23 @@
+.menu__item {
+    position: relative;
+    margin-right: 34px;
+}
+
+.menu__item:last-child {
+    margin-right: 32px;
+}
+
+@media (max-width: 968px) {
+    .menu__item {
+        margin-right: 16px;
+    }
+    .menu__item:last-child {
+        margin-right: 16px;
+    }
+}
+
+@media (max-width: 650px) {
+    .menu__item {
+        margin: 0 0 32px;
+    }
+}

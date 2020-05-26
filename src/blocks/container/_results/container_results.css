@@ -1,0 +1,11 @@
+.container_results {
+    flex-direction: column;
+    padding-bottom: 80px;
+    ;
+}
+
+@media (max-width: 968px) {
+    .container_results {
+        padding-bottom: 40px;
+    }
+}

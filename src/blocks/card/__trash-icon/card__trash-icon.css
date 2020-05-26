@@ -1,0 +1,25 @@
+.card__trash-icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    height: 40px;
+    width: 40px;
+    background: #FFFFFF url('../../../images/icon/trash/trash.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@media (max-width: 976px) {
+    .card__trash-icon {
+        top: 8px;
+        right: 8px;
+    }
+}
+
+.card__trash-icon:hover {
+    background: #FFFFFF url('../../../images/icon/trash/trash-hover.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}

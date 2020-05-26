@@ -1,0 +1,19 @@
+.card__info {
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px 24px;
+}
+
+@media (max-width: 540px) {
+    .card__info {
+        height: 218px;
+    }
+}
+
+@media (max-width: 976px) {
+    .card__info {
+        height: 240px;
+        padding: 16px;
+    }
+}

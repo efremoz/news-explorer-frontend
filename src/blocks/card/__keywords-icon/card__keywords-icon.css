@@ -1,0 +1,17 @@
+.card__keywords-icon {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 8px 12px;
+    background: #fff;
+}
+
+@media (max-width: 976px) {
+    .card__keywords-icon {
+        top: 8px;
+        left: 8px;
+    }
+}
