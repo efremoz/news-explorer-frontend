@@ -4,7 +4,7 @@ const errors = {
   MISSING_VALUE_ERROR: 'Необходимо заполнить поле',
   MISSING_SEARCH_VALUE_ERROR: 'Нужно ввести ключевое слово',
   TYPE_SEARCH_VALUE: 'Введите тему новости',
-  PASSWORD_LENGTH_ERROR: 'Пароль должен быть минимум 8 символов',
+  PASSWORD_LENGTH_ERROR: 'Пароль должен быть минимум 10 символов',
   NAME_LENGTH_ERROR: 'Имя должно быть от 2 до 30 символов',
   NO_RESULT: 'Ничего не найдено',
   NO_ARTICLES: 'нет',
