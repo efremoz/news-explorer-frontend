@@ -1,4 +1,3 @@
-@import url('./_mobile/menu__items-container_mobile.css');
 @import url('./_white/menu__items-container__white.css');
 .menu__items-container {
     display: flex;

@@ -30,12 +30,15 @@
                                         <a class="menu__link menu__link_active" href="./">Главная</a>
                                         <div class="menu__link-line menu__link-line_active"></div>
                                     </li>
-                                    <li class="menu__item">
-                                        <a class="menu__link" href="articles/">Сохраненные статьи</a>
-                                        <div class="menu__link-line"></div>
+                                    <li class="menu__item menu__item_articles">
+                                        <a class="menu__link" href="./articles">Сохраненные статьи</a>
+
                                     </li>
+
                                 </ul>
-                                <button class="button header__button"><span class="button__text">Авторизоваться</span><i class="button__icon"></i></button>
+                                <button class="button header__button">
+                                    <span class="button__text">Авторизоваться</span>
+                                    <i class="button__icon button__icon-logout"></i></button>
                             </div>
                         </nav>
                     </div>
@@ -46,10 +49,10 @@
 
                     <h1 class="lead__title">Что в мире творится ?</h1>
                     <p class="lead__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
-                    <div class="search">
-                        <input type="text" class="search__field" placeholder="Введите тему новости">
-                        <button class="search__button">Искать</button>
-                    </div>
+                    <form class="search form">
+                        <input type="text" class="search__field" name="search" placeholder="Введите тему новости">
+                        <button class="search__button" name="submit" disabled>Искать</button>
+                    </form>
                 </div>
             </section>
         </div>
@@ -58,60 +61,26 @@
 
                 <div class="container container_results">
                     <h2 class="title title_results">Результаты поиска</h2>
-                    <div class="results__list">
-                        <div class="card">
-                            <div class="card__image-container">
-                                <img class="card__image" src="<%=require('../images/cards/1.jpg')%>" alt="Card 1">
-                                <button class="card__bookmark-icon"></button>
-                            </div>
+                    <div class="results__list"></div>
 
-                            <div class="card__info">
-                                <p class="card__date">2 августа, 2018</p>
-                                <h3 class="card__title">Национальное достояние - парки</h3>
-                                <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                                <p class="card__source">ЛЕНТА.РУ</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card__image-container">
-                                <img class="card__image" src="<%=require('../images/cards/2.jpg')%>" alt="Card 2">
-                                <button class="card__bookmark-icon"></button>
-                            </div>
-                            <div class="card__info">
-                                <p class="card__date">1 май, 2019</p>
-                                <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-                                <p class="card__description">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-                                <p class="card__source">МЕДУЗА</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card__image-container">
-                                <img class="card__image" src="<%=require('../images/cards/3.jpg')%>" alt="Card 3">
-                                <button class="card__bookmark-icon"></button>
-                            </div>
-                            <div class="card__info">
-                                <p class="card__date">15 января, 2017</p>
-                                <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-                                <p class="card__description">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-                                <p class="card__source">РИА</p>
-                            </div>
-                        </div>
-
+                    <div class="preloader">
+                        <i class="preloader__circle"></i>
+                        <p class="preloader__text">Идет поиск новостей...</p>
                     </div>
+
+                    <div class="no-results">
+                        <img src="<%=require('../images/not-found.svg')%>" alt="Нет результатов" class="no-results__image" />
+                        <h3 class="results__no-results__title">Ничего не найдено</h3>
+                        <p class="no-results__text">К сожалению, по вашему запросу ничего не найдено.</p>
+                    </div>
+                    <span class="results__message"></span>
 
                     <button class="button results__button">Показать еще</button>
 
 
                 </div>
-                <div class="preloader">
-                    <i class="preloader__circle"></i>
-                    <p class="preloader__text">Идет поиск новостей...</p>
-                </div>
-                <div class="not-found">
-                    <img src="<%=require('../images/not-found.svg')%>" alt="Нет результатов" class="not-found__image" />
-                    <h3 class="not-found__title">Ничего не найдено</h3>
-                    <p class="not-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
-                </div>
+
+
 
             </section>
             <section class="author">
@@ -162,43 +131,72 @@
     <div class="popup">
         <div class="popup__content">
             <img src="<%=require('../images/icon/close.svg')%>" alt="закрыть" class="popup__close">
-            <form novalidate action="/" class="form form_login">
-                <h2 class="form__title">Вход</h2>
-
-                <label for="email" class="form__input-label">Email</label>
-                <input type="email" name="email" id="email" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
-                <span class="form__error">Адрес почты указан в неверном формате</span>
-                <label for="password" class="form__input-label">Пароль</label>
-                <input type="password" id="password" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
-                <span class="form__error">Пароль должен быть минимум 8 символов</span>
-
-                <span class="form__error form__error_submit"></span>
-                <button class="form__submit" name="submit" disabled>Войти</button>
-                <span class="form__switch">или <span class="form__switch-link form__switch-registration">Зарегистрироваться</span></span>
-            </form>
-
-            <form novalidate action="/" class="form form_signup">
-                <h2 class="form__title">Регистрация</h2>
-
-                <label for="email-reg" class="form__input-label">Email</label>
-                <input type="email" name="email" id="email-reg" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
-                <span class="form__error">Адрес почты указан в неверном формате</span>
-                <label for="password-reg" class="form__input-label">Пароль</label>
-                <input type="password" id="password-reg" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
-                <span class="form__error">Пароль должен быть минимум 8 символов</span>
-                <label for="username-reg" class="form__input-label">Имя</label>
-                <input type="text" id="username-reg" name="name" class="form__input" placeholder="Введите своё имя" minlength="2" maxlength="30" required="">
-                <span class="form__error"></span>
-
-                <span class="form__error form__error_submit"></span>
-                <button class="form__submit form__submit_active" name="submit">
-                  Зарегистрироваться
-                </button>
-
-                <span class="form__switch">или <span class="form__switch-link form__switch-auth ">Войти</span></span>
-            </form>
         </div>
     </div>
+
+    <template class="form_template-signup">
+        <form novalidate action="/" class="form form_signup">
+            <h2 class="form__title">Регистрация</h2>
+            <label for="email-reg" class="form__input-label">Email</label>
+            <input type="email" name="email" id="email-reg" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
+            <span class="form__error">Адрес почты указан в неверном формате</span>
+            <label for="password-reg" class="form__input-label">Пароль</label>
+            <input type="password" id="password-reg" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
+            <span class="form__error">Пароль должен быть минимум 8 символов</span>
+            <label for="username-reg" class="form__input-label">Имя</label>
+            <input type="text" id="username-reg" name="name" class="form__input" placeholder="Введите своё имя" minlength="2" maxlength="30" required="">
+            <span class="form__error"></span>
+            <span class="form__error form__error_submit"></span>
+            <button class="form__submit" name="submit" disabled>Зарегистрироваться</button>
+            <span class="form__switch">или <span class="form__switch-link form__switch-auth ">Войти</span></span>
+        </form>
+    </template>
+    <template class="form_template-login">
+        <form novalidate action="/" class="form form_login">
+            <h2 class="form__title">Вход</h2>
+            <label for="email" class="form__input-label">Email</label>
+            <input type="email" name="email" id="email" class="form__input" placeholder="Введите почту" pattern="[\w\-\.]{2,}@[\w-]{2,}(\.[\w-]{2,})?\.[\w-]{2,}" required="">
+            <span class="form__error">Адрес почты указан в неверном формате</span>
+            <label for="password" class="form__input-label">Пароль</label>
+            <input type="password" id="password" name="password" class="form__input" placeholder="Введите пароль" minlength="8" required="">
+            <span class="form__error">Пароль должен быть минимум 8 символов</span>
+            <span class="form__error form__error_submit"></span>
+            <button class="form__submit" name="submit" disabled>Войти</button>
+            <span class="form__switch">или <span class="form__switch-link form__switch-registration">Зарегистрироваться</span></span>
+        </form>
+    </template>
+
+    <template class="form_template-success">
+        <div class="form form_success">
+          <h2 class="form__title">Пользователь успешно зарегистрирован!</h2>
+          <span class="form__switch-link">Выполнить вход</span>
+        </div>
+      </template>
+
+
+    <template class="card-template">
+        <div class="card__wrapper">
+          
+            <div class="card">
+                <div class="card__image-container">
+                    <img class="card__image">
+                    <button class="card__bookmark-button card__bookmark-button_unsaved"></button>
+                    <div class="card__bookmark-label">
+                        Войдите, чтобы сохранять статьи
+                      </div>
+                </div>
+
+                <div class="card__info">
+                    <p class="card__date"></p>
+                    <h3 class="card__title"></h3>
+                    <div class="card__description-wrapper">
+                        <p class="card__description"></p>
+                    </div>
+                    <p class="card__source"></p>
+                </div>
+            </div>
+        </div>
+      </template>
 
     <script type="module" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
