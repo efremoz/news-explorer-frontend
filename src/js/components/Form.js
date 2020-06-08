@@ -101,15 +101,7 @@ export default class Form extends BaseComponent {
     if (this._element.checkValidity()) return true;
     return false;
   }
-
-  _validateInputElement(e) {
-    //валидирует переданный в качестве аргумента инпут;
-  }
   
-  _validateForm(e) {
-    //валидирует всю форму;
-  }
-
   _validateHandler(e) {
     Form._inputHandler(e);
 

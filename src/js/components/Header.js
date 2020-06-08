@@ -18,8 +18,6 @@ export default class Header extends BaseComponent {
 
   render(props) {
 
-    console.log(props, 'Props');
-
     //при вызове перерисовывает шапку в зависимости от переданного аргумента — объекта props. 
     //У этого объекта есть два обязательных свойства:
     //isLoggedIn — залогинен ли пользователь;

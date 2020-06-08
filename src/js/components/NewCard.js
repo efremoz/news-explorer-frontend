@@ -26,7 +26,6 @@ export default class NewsCard extends BaseComponent {
     this._element.querySelector('.card__date',).textContent = NewsCard._setFormattedDate(data.date);
     this._element.querySelector('.card__description').textContent = data.text;
 
-   //console.log(data);
     this._element.querySelector('.card__image').src = data.image;
     this._element.querySelector('.card__image').alt = data.title;
     if (this._element.querySelector('.card__keywords-icon')) {

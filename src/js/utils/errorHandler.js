@@ -6,7 +6,7 @@ const errorHandler = (err, handler, message) => {
       err.message === 'Failed to fetch' ? handler(message) : handler(err);
     }
   } else {
-    console.log(err, 'Ошибка');
+    console.log(err);
   }
 };
 

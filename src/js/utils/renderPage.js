@@ -5,7 +5,7 @@ const renderPage = (api, header, article) => {
     .getUserData()
     .then(res => {
       header.render({ isLoggedIn: true, userName: res.data.name });
-      console.log(res.data);
+  
       if (article) {
         article.setUsername(res.data.name);
       }

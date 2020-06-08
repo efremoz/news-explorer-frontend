@@ -1,6 +1,6 @@
 import BaseComponent from './BaseComponent';
 import errors from '../constants/errors';
-import articleCases from '../constants/articleCases';
+import articleCases from '../constants/constants';
 
 const { NOMINATIVE_CASE, GENITIVE_CASE, ACCUSATIVE_CASE } = articleCases;
 const { NO_ARTICLES } = errors;
