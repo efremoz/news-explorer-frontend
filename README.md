@@ -4,7 +4,7 @@
 
 ### Ссылка на проект
 
-https://app-news.tk/
+https://app-news.tk
 
 ### Описание
 
