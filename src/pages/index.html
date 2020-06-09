@@ -50,7 +50,7 @@
                     <h1 class="lead__title">Что в мире творится ?</h1>
                     <p class="lead__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
                     <form class="search form">
-                        <input type="text" class="search__field" name="search" placeholder="Введите тему новости" required>
+                        <input type="text" class="search__field" name="search" pattern="[^ ]*" minlength="3" placeholder="Введите тему новости" required>
                         <button class="search__button" name="submit" disabled>Искать</button>
                     </form>
                 </div>
