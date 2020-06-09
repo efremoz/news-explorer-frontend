@@ -1,0 +1,25 @@
+.card__bookmark-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    height: 40px;
+    width: 40px;
+    background: #FFFFFF url('../../../images/icon/bookmark/bookmark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 8px;
+}
+
+.card__bookmark-button:hover {
+    background: #FFFFFF url('../../../images/icon/bookmark/bookmark-hover.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media (max-width: 976px) {
+    .card__bookmark-button {
+        top: 8px;
+        right: 8px;
+    }
+}

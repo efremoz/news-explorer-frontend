@@ -1,5 +1,7 @@
 @import url(./__text/button__text.css);
 @import url(./__icon/button__icon.css);
+@import url(./__icon-logout/button__icon-logout.css);
+@import url(./__icon-logout/_black/button__icon-logout_black.css);
 .button {
     font-family: Roboto;
     font-style: normal;

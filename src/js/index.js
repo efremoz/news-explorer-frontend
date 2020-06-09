@@ -1,65 +1,285 @@
 import '../pages/index.css';
 
-const formLogin = document.querySelector('.form_login');
-const formSignup = document.querySelector('.form_signup');
+import config from './constants/config';
+import errors from './constants/errors';
 
-const popup = document.querySelector('.popup');
-const buttonClose = document.querySelector('.popup__close');
-const authButton = document.querySelector('.header__button');
+import Header from './components/Header';
+import Popup from './components/Popup';
+import Form from './components/Form';
+import Search from './components/Search';
+import Results from './components/Results';
+import NewsCard from './components/NewCard';
 
-const buttonAuth = document.querySelector('.form__switch-auth');
-const buttonRegistration = document.querySelector('.form__switch-registration');
+import MainApi from './api/MainApi';
+import NewsApi from './api/NewsApi';
 
-const  header = document.querySelector('.header');
-const  body = document.querySelector('.body');
-const  buttonMenu = document.querySelector('.menu__button');
-const  blcokMenuContainerMobile = document.querySelector('.menu__items-container_mobile');
-const  blockOverlay = document.querySelector('.header__menu-overlay');
+import switchPopup from './utils/switchPopup';
+import renderPage from './utils/renderPage';
+import convertCardData from './utils/convertCardData';
+import toggleSaveButton from './utils/toggleSaveButton';
+import errorHandler from './utils/errorHandler';
 
-const  formInput = document.querySelector('form');
+const {
+  SERVER_URL,
+  NEWSAPI_URL,
+  NEWSAPI_TOKEN,
+  LAST_DAY,
+  CARD_AMOUNT,
+} = config;
+const { GET_RESULT_ERROR, NO_INTERNET } = errors;
 
-function popupClose() {
-  popup.classList.remove('popup_is-opened')
-};
-
-function popupOpen() {
-  popup.classList.add('popup_is-opened')
-};
-
-buttonClose.addEventListener('click', popupClose);
-authButton.addEventListener('click', popupOpen);
-
-buttonAuth.addEventListener('click', () => {
-  formSignup.style.display = 'none';
-  formLogin.style.display = 'block';
-  
-});
-buttonRegistration.addEventListener('click', () => {
-  formLogin.style.display = 'none';
-  formSignup.style.display = 'block';
+const mainApi = new MainApi({
+  url: SERVER_URL,
 });
 
-buttonMenu.addEventListener('click', () => {
+const newsApi = new NewsApi({
+  url: NEWSAPI_URL,
+  headers: {
+    authorization: NEWSAPI_TOKEN,
+  },
+  lastDay: LAST_DAY,
+});
 
-  let statusMenu = document.getElementsByClassName('menu__button-close');
+const loginForm = new Form('.form_template-login');
+const signupForm = new Form('.form_template-signup');
+const successForm = new Form('.form_template-success');
+const header = new Header(document.querySelector('.header'), false);
+const popup = new Popup(document.querySelector('.popup'));
+const search = new Search(document.querySelector('.search'));
+const results = new Results(document.querySelector('.results'), false);
 
-  if(1 === statusMenu.length) {
-    header.classList.remove('header_dropdown');
-    body.classList.remove('body_is-hidden');
-    blockOverlay.style.display = 'none';
-    blcokMenuContainerMobile.style.display = 'none';
-    buttonMenu.classList.remove('menu__button-close');
-    buttonMenu.classList.remove('menu__button-close_white');
-    buttonMenu.classList.add('menu__button-open');
-    buttonMenu.classList.add('menu__button-open_white');
+switchPopup(loginForm, signupForm, popup);
+switchPopup(signupForm, loginForm, popup);
+switchPopup(successForm, loginForm, popup);
+
+if (localStorage.getItem('token')) {
+  renderPage(mainApi, header);
+}
+
+const headerButtonHandler = e => {
+  e.preventDefault();
+
+  if (localStorage.getItem('token')) {
+    localStorage.removeItem('token');
+    header.render({ isLoggedIn: false });
   } else {
-    header.classList.add('header_dropdown');
-    body.classList.add('body_is-hidden');
-    blockOverlay.style.display = 'flex';
-    blcokMenuContainerMobile.style.display = 'flex';
-    buttonMenu.classList.remove('menu__button-open');
-    buttonMenu.classList.remove('menu__button-open_white');
-    buttonMenu.classList.add('menu__button-close');
-    buttonMenu.classList.add('menu__button-close_white');
-  }  
-});
+    popup.open(loginForm.element, loginForm.clear);
+    if (window.matchMedia('(max-width: 650px)').matches) {
+      header.toggleMenu();
+    }
+  }
+};
+
+const headerMenuHandler = e => {
+  if (
+    window.matchMedia('(max-width: 650px)').matches &&
+    e.target.classList.contains('menu__button')
+  ) {
+    header.toggleMenuButton();
+    if (!document.querySelector('.popup_opened')) {
+      header.toggleMenu();
+    } else {
+      popup.close();
+    }
+  }
+};
+
+header.setListeners([
+  {
+    event: 'click',
+    element: '.header__button',
+    callback: e => headerButtonHandler(e),
+  },
+  {
+    event: 'click',
+    element: '.menu__button',
+    callback: e => headerMenuHandler(e),
+  },
+]);
+
+// Forms callback setting
+
+const loginFormHandler = e => {
+  e.preventDefault();
+  loginForm.toggleLockForm(true);
+
+  mainApi
+    .signin(loginForm.getInputValues())
+    .then(data => {
+      loginForm.toggleLockForm(false);
+      localStorage.setItem('token', data.token);
+      renderPage(mainApi, header);
+      popup.close();
+      if (window.matchMedia('(max-width: 650px)').matches) {
+        header.toggleMenuButton();
+      }
+    })
+    .catch(err => {
+      loginForm.toggleLockForm(false);
+      errorHandler(err, loginForm.setSubmitError, NO_INTERNET);
+    });
+};
+
+const signupFormHandler = e => {
+  e.preventDefault();
+  signupForm.toggleLockForm(true);
+
+  mainApi
+    .signup(signupForm.getInputValues())
+    .then(() => {
+      signupForm.toggleLockForm(false);
+      popup.clearContent();
+      popup.setContent(successForm.element);
+    })
+    .catch(err => {
+      signupForm.toggleLockForm(false);
+      errorHandler(err, signupForm.setSubmitError, NO_INTERNET);
+    });
+};
+
+loginForm.setListeners([
+  {
+    event: 'click',
+    element: '.form__submit',
+    callback: e => loginFormHandler(e),
+  },
+]);
+
+signupForm.setListeners([
+  {
+    event: 'click',
+    element: '.form__submit',
+    callback: e => signupFormHandler(e),
+  },
+]);
+
+const cornerButtonHandler = (e, card, data) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  if (localStorage.getItem('token')) {
+    if (e.target.classList.contains('card__bookmark-button_saved')) {
+      mainApi
+        .deleteBookmark(card.id)
+        .then(() => {
+          e.target.classList.toggle('card__bookmark-button_saved');
+        })
+        .catch(err => {
+          errorHandler(err);
+        });
+    } else {
+      mainApi
+        .addBookmark(data)
+        .then(res => {
+          e.target.classList.toggle('card__bookmark-button_saved');
+          card.id = res.data._id;
+        })
+        .catch(err => {
+          errorHandler(err);
+        });
+    }
+  }
+};
+
+const addNewCard = data => {
+  const newsCardData = convertCardData(data, search);
+
+  const newsCardElement = new NewsCard(newsCardData, '.card-template');
+  newsCardElement.setListeners([
+    {
+      event: 'click',
+      element: '.card__bookmark-button',
+      callback: e => cornerButtonHandler(e, newsCardElement, newsCardData),
+    },
+    {
+      event: 'click',
+      element: '.card',
+      callback: () => {
+        window.open(newsCardData.link, '_blank');
+      },
+    },
+    
+  ]);
+
+  results.renderedCards.push(newsCardElement);
+  results.insertElement(newsCardElement.node);
+};
+
+const searchHandler = e => {
+  e.preventDefault();
+  search.toggleLockForm();
+
+  results.show();
+  if (results.renderedCards.length > 0) {
+    results.renderedCards.forEach(card => {
+      card.remove();
+    });
+    results.renderedCards = [];
+  }
+
+  newsApi
+    .getNews(search.input)
+    .then(res => {
+      search.toggleLockForm();
+      results.togglePreloader(false);
+      results.cardsData = res.articles;
+      if (res.articles.length > 0) {
+        for (let i = 0; i < CARD_AMOUNT; i++) {
+          if (res.articles[i]) {
+            addNewCard(res.articles[i]);
+          } else {
+            break;
+          }
+        }
+        if (res.articles.length > CARD_AMOUNT) {
+          results.toggleMoreCards(true);
+          results.counter = 3;
+        }
+      } else if (res.articles.length === 0) {
+        results.toggleNoResults(true);
+      }
+    })
+    .catch(err => {
+      search.toggleLockForm();
+      results.togglePreloader(false);
+      errorHandler(err, results.setMessageError, GET_RESULT_ERROR);
+    });
+};
+
+const moreCardsHandler = () => {
+  for (let i = results.counter; i < results.counter + CARD_AMOUNT; i++) {
+    if (results.cardsData[i]) {
+      addNewCard(results.cardsData[i]);
+    } else {
+      results.toggleMoreCards(false);
+      break;
+    }
+  }
+  results.counter += CARD_AMOUNT;
+};
+
+search.setListeners([
+  {
+    event: 'click',
+    element: '.search__button',
+    callback: e => searchHandler(e),
+  },
+]);
+
+results.setListeners([
+   {
+     event: 'click',
+     element: '.results__button',
+     callback: moreCardsHandler,
+   },
+  {
+    event: 'mouseover',
+    element: '.results__list',
+    callback: toggleSaveButton,
+  },
+  {
+    event: 'mouseout',
+    element: '.results__list',
+    callback: toggleSaveButton,
+  },
+]);

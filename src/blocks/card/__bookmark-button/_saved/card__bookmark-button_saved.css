@@ -1,0 +1,11 @@
+.card__bookmark-button_saved {
+    background: #FFFFFF url('../../../../images/icon/bookmark/bookmark-focus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card__bookmark-button_saved:hover {
+    background: #FFFFFF url('../../../../images/icon/bookmark/bookmark-focus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}

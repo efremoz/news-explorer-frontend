@@ -1,0 +1,14 @@
+.search__button_active {
+    background: #2f71e5;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(14, 26, 57, .2);
+    cursor: pointer;
+}
+
+.search__button_active:hover {
+    background-color: #347EFF;
+}
+
+.search__button_active:active {
+    background-color: #2A65CC;
+}

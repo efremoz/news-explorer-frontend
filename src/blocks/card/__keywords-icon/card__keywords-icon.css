@@ -7,6 +7,7 @@
     line-height: 24px;
     padding: 8px 12px;
     background: #fff;
+    font-weight: bold;
 }
 
 @media (max-width: 976px) {

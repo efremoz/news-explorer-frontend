@@ -1,4 +1,8 @@
-@import url('./__bookmark-icon/card__bookmark-icon.css');
+@import url('./__bookmark-button/card__bookmark-button.css');
+@import url('./__bookmark-button/_unsaved/card__bookmark-button_unsaved.css');
+@import url('./__bookmark-button/_saved/card__bookmark-button_saved.css');
+@import url('./__bookmark-label/card__bookmark-label.css');
+@import url('./__bookmark-label/_active/card__bookmark-label_active.css');
 @import url('./__image-container/card__image-container.css');
 @import url('./__info/card__info.css');
 @import url('./__date/card__date.css');
@@ -7,6 +11,8 @@
 @import url('./__source/card__source.css');
 @import url('./__image/card__image.css');
 @import url('./__trash-icon/card__trash-icon.css');
+@import url('./__trash-label/card__trash-label.css');
+@import url('./__trash-label/card__trash-label.css');
 @import url('./__keywords-icon/card__keywords-icon.css');
 .card {
     max-width: 400px;
@@ -17,6 +23,7 @@
     font-weight: normal;
     background-color: #fff;
     color: #1a1b22;
+    cursor: pointer;
 }
 
 @media (min-width: 540px) and (max-width: 976px) {

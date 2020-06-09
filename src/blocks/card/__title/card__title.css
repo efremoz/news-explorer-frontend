@@ -5,11 +5,16 @@
     font-weight: normal;
     font-size: 26px;
     line-height: 30px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 
 @media (max-width: 976px) {
     .card__title {
         font-size: 22px;
         line-height: 24px;
+        -webkit-line-clamp: 2;
     }
 }

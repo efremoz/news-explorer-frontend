@@ -1,33 +1,116 @@
 import '../../pages/articles/index.css';
 
-const  header = document.querySelector('.header');
-const  body = document.querySelector('.body');
-const  buttonMenu = document.querySelector('.menu__button');
-const  blcokMenuContainerMobile = document.querySelector('.menu__items-container_mobile');
-const  blockOverlay = document.querySelector('.header__menu-overlay');
+import config from '../constants/config';
+import errors from '../constants/errors';
 
+import Header from '../components/Header';
+import Results from '../components/Results';
+import NewsCard from '../components/NewCard';
+import Article from '../components/Article';
 
-buttonMenu.addEventListener('click', () => {
+import MainApi from '../api/MainApi';
 
-  let statusMenu = document.getElementsByClassName('menu__button-close');
+import renderPage from '../utils/renderPage';
+import errorHandler from '../utils/errorHandler';
 
-  if(1 === statusMenu.length) {
-    header.classList.remove('header_dropdown');
-    body.classList.remove('body_is-hidden');
-    blockOverlay.style.display = 'none';
-    blcokMenuContainerMobile.style.display = 'none';
-    buttonMenu.classList.remove('menu__button-close');
-    buttonMenu.classList.remove('menu__button-close_black');
-    buttonMenu.classList.add('menu__button-open');
-    buttonMenu.classList.add('menu__button-open_black');
-  } else {
-    header.classList.add('header_dropdown');
-    body.classList.add('body_is-hidden');
-    blockOverlay.style.display = 'flex';
-    blcokMenuContainerMobile.style.display = 'flex';
-    buttonMenu.classList.remove('menu__button-open');
-    buttonMenu.classList.remove('menu__button-open_black');
-    buttonMenu.classList.add('menu__button-close');
-    buttonMenu.classList.add('menu__button-close_black');
-  }
+const { GET_RESULT_ERROR } = errors;
+
+const mainApi = new MainApi({
+  url: config.SERVER_URL,
 });
+
+const header = new Header(document.querySelector('.header'), true);
+const results = new Results(document.querySelector('.results'), true);
+const article = new Article(document.querySelector('.article'));
+
+if (localStorage.getItem('token')) {
+  renderPage(mainApi, header, article);
+} else {
+  window.location.href = '../';
+}
+
+const headerButtonHandler = e => {
+  e.preventDefault();
+  localStorage.removeItem('token');
+  window.location.href = '../';
+};
+
+const headerMenuHandler = e => {
+  if (
+    window.matchMedia('(max-width: 650px)').matches &&
+    e.target.classList.contains('menu__button')
+  ) {
+    header.toggleMenuButton();
+    header.toggleMenu();
+  }
+};
+
+header.setListeners([
+  {
+    event: 'click',
+    element: '.header__button',
+    callback: e => headerButtonHandler(e),
+  },
+  {
+    event: 'click',
+    element: '.menu__button',
+    callback: e => headerMenuHandler(e),
+  },
+]);
+
+const trashButtonHandler = (e, card, data) => {
+  e.preventDefault();
+  e.stopPropagation();
+  if (window.confirm('Вы действительно хотите удалить эту новость?')) {
+    mainApi
+      .deleteBookmark(data._id)
+      .then(() => {
+        article.changeSummary(data.keyword);
+        card.remove();
+        results.renderedCards.pop();
+        if (results.renderedCards.length === 0) {
+          results.hide();
+        }
+      })
+      .catch(err => {
+        errorHandler(err);
+      });
+  }
+};
+
+results.show();
+mainApi
+  .getArticles()
+  .then(res => {
+    results.togglePreloader(false);
+    res.data.forEach(cardData => {
+      article.createSummary(cardData.keyword);
+
+      const newsCardElement = new NewsCard(cardData, '.card-bookmark-template');
+      newsCardElement.setListeners([
+        {
+          event: 'click',
+          element: '.card__trash-button',
+          callback: e => trashButtonHandler(e, newsCardElement, cardData),
+        },
+        {
+          event: 'click',
+          element: '.card',
+          callback: () => {
+            window.open(cardData.link, '_blank');
+          },
+        },
+        
+      ]);
+
+      results.renderedCards.push(newsCardElement);
+      results.insertElement(newsCardElement.node);
+      article.counter += 1;
+    });
+
+    article.sortSummary();
+  })
+  .catch(err => {
+    results.togglePreloader(false);
+    errorHandler(err, results.setMessageError, GET_RESULT_ERROR);
+  });

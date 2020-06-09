@@ -13,7 +13,7 @@
 </head>
 
 
-<body class="body body_is-hidde">
+<body class="body">
     <div class="root">
         <header class="header header_white">
             <div class="container container_header">
@@ -31,14 +31,14 @@
                                     <a class="menu__link menu__link_black menu__link_active" href="../">Главная</a>
 
                                 </li>
-                                <li class="menu__item">
+                                <li class="menu__item menu__item_articles">
                                     <a class="menu__link menu__link_black menu__link_active" href="./">Сохраненные статьи</a>
                                     <div class="menu__link-line menu__link-line_active menu__link-line_black "></div>
                                 </li>
                             </ul>
                             <button class="button header__button header__buton_black">
                                 <span class="button__text">Денис</span>
-                                <img class="button__icon button__icon_logout" src="../<%=require('../../images/icon/logout/logout-black.svg')%>" alt="Выход" >
+                                <i class="button__icon button__icon-logout button__icon-logout_black"></i>
                             </button>
                         </div>
                     </nav>
@@ -51,97 +51,25 @@
                 <div class="container container_article">
                     <span class="article__subtitle">Сохранённые статьи</span>
                     <h2 class="article__title">
-                        <span class="article__name">Денис</span>, у вас
-                        <span class="article__count">5</span>
+                        <span class="article__name"></span>, у вас
+                        <span class="article__count">нет</span>
                         <span class="article__saved"> сохранённых статей</span>
                     </h2>
                     <p class="article__text">
                         По ключевым словам:
-                        <span class="article__keywords">Природа, Тайга</span>
+                        <span class="article__keywords"></span>
                     </p>
                 </div>
             </section>
+
             <section class="results">
-                <div class="container container_section_results">
-                    <div class="results__list results__list_articles">
-                        <div class="card">
-                            <div class="card__image-container">
-                                <img class="card__image" src="../<%=require('../../images/cards/4.png')%>" alt="Card 4">
-                                <span class="card__keywords-icon">Природа</span>
-                                <button class="card__trash-icon"></button>
-                            </div>
-
-                            <div class="card__info">
-                                <p class="card__date">2 августа, 2020</p>
-                                <h3 class="card__title">Национальное достояние - парки</h3>
-                                <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                                <p class="card__source">ЛЕНТА.РУ</p>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card__image-container">
-                                <img class="card__image" src="../<%=require('../../images/cards/5.jpg')%>" alt="Card 5">
-                                <span class="card__keywords-icon">Природа</span>
-                                <button class="card__trash-icon"></button>
-                            </div>
-
-                            <div class="card__info">
-                                <p class="card__date">1 августа, 2020</p>
-                                <h3 class="card__title">Лесные огоньки: история одной фотографии</h3>
-                                <p class="card__description">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-                                <p class="card__source">АФИША</p>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card__image-container">
-                                <img class="card__image" src="../<%=require('../../images/cards/6.jpg')%>" alt="Card 6">
-                                <span class="card__keywords-icon">Тайга</span>
-                                <button class="card__trash-icon"></button>
-                            </div>
-
-                            <div class="card__info">
-                                <p class="card__date">1 августа, 2018</p>
-                                <h3 class="card__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
-                                <p class="card__description">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-                                <p class="card__source">Медиазона</p>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card__image-container">
-                                <img class="card__image" src="../<%=require('../../images/cards/4.png')%>" alt="Card 4">
-                                <span class="card__keywords-icon">Парк</span>
-                                <button class="card__trash-icon"></button>
-                            </div>
-
-                            <div class="card__info">
-                                <p class="card__date">2 августа, 2020</p>
-                                <h3 class="card__title">Национальное достояние - парки</h3>
-                                <p class="card__description">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-                                <p class="card__source">ЛЕНТА.РУ</p>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card__image-container">
-                                <img class="card__image" src="../<%=require('../../images/cards/5.jpg')%>" alt="Card 5">
-                                <span class=" card__keywords-icon ">Фотография</span>
-                                <button class="card__trash-icon "></button>
-                            </div>
-
-                            <div class="card__info ">
-                                <p class="card__date ">1 августа, 2020</p>
-                                <h3 class="card__title ">Лесные огоньки: история одной фотографии</h3>
-                                <p class="card__description ">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-                                <p class="card__source ">АФИША</p>
-                            </div>
-                        </div>
-
+                <div class="container container_results">
+                    <div class="results__list results__list_articles"></div>
+                    <div class="preloader">
+                        <i class="preloader__circle"></i>
+                        <p class="preloader__text">Идет загрузка...</p>
                     </div>
-
-
+                    <span class="results__message"></span>
                 </div>
             </section>
         </main>
@@ -173,7 +101,34 @@
                 </div>
             </div>
         </footer>
+        <div class="popup"></div>
     </div>
+    <template class="card-bookmark-template">
+        <div class="card__wrapper">
+
+           
+          <div class="card">
+            
+   
+            <div class="card__image-container">
+                <img class="card__image">
+                <span class="card__keywords-icon"></span>
+                <button class="card__trash-button card__trash-icon"></button>
+                <div class="card__trash-label">Убрать из сохранённых</div>
+            </div>
+
+            <div class="card__info">
+                <p class="card__date"></p>
+                <h3 class="card__title"></h3>
+                <div class="card__description-wrapper">
+                    <p class="card__description"></p>
+                </div>
+                <p class="card__source"></p>
+            </div>
+        
+          </div>
+        </div>
+      </template>
     <script src="<%= htmlWebpackPlugin.files.chunks.articles.entry %>"></script>
 </body>
 
