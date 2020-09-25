@@ -26,7 +26,7 @@ export default class NewsApi {
 
   getNews(input) {
      //возвращает список новостей на основе запроса.
-    return fetch(`${this._url}/?apiKey=${NEWSAPI_TOKEN}&q=${input}${this._getDates()}&pageSize=100`, {
+    return fetch(`${this._url}/?country=ru&apiKey=${NEWSAPI_TOKEN}&q=${input}${this._getDates()}&pageSize=100`, {
       headers: this._headers,
     }).then(res => NewsApi.getJSONResponse(res));
   }
