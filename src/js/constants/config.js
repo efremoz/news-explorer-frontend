@@ -1,6 +1,6 @@
 const config = {
   SERVER_URL: 'https://api.app-news.tk',
-  NEWSAPI_URL: 'http://newsapi.org/v2/everything',
+  NEWSAPI_URL: 'https://nomoreparties.co/news/v2/top-headlines',
   NEWSAPI_TOKEN: '09dab21e37334c80845d5393e44fba9e',
   ESCAPE_CODE: 27,
   ONE_DAY: 24 * 60 * 60 * 1000,

@@ -35,7 +35,7 @@ const mainApi = new MainApi({
 const newsApi = new NewsApi({
   url: NEWSAPI_URL,
   headers: {
-    authorization: NEWSAPI_TOKEN,
+    "authorization": NEWSAPI_TOKEN,
   },
   lastDay: LAST_DAY,
 });
